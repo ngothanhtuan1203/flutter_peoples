@@ -4,13 +4,13 @@ import 'package:persons_exam/data/model/repo/model.dart';
 import '../../../data/repository/home_repository.dart';
 import 'home_event.dart';
 import 'home_state.dart';
-
+import '../../../utils/my_const/my_const.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final HomeRepository homeRepository;
   List<People> myList =[];
   int initPage = 1;
   int loadMoreCount = 0;
-  int loadedLastIndex = 10;
+  int loadedLastIndex = UI_CONST.SIZE;
   HomeBloc({required this.homeRepository}) : super(HomeLoading());
 
   @override
@@ -36,12 +36,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       if(initPage == 1) {
         final response = await homeRepository.getHomeData(initPage);
         myList = response.users;
-        loadMoreCount = initPage*10;
+        loadMoreCount = initPage*UI_CONST.SIZE;
         initPage++;
         yield HomeLoaded(myList);
       } else {
         loadedLastIndex += loadMoreCount;
-        final response = await homeRepository.getHomeData((loadedLastIndex/10).toInt());
+        final response = await homeRepository.getHomeData((loadedLastIndex/UI_CONST.SIZE).toInt());
         myList += response.users;
         yield HomeLoaded(myList);
       }

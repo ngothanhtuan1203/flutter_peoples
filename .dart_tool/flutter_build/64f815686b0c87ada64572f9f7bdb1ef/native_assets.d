@@ -1,0 +1,1 @@
+ /Volumes/WinData/working/interview/flutter/people_exam_git/flutter_peoples/.dart_tool/flutter_build/64f815686b0c87ada64572f9f7bdb1ef/native_assets.yaml: 

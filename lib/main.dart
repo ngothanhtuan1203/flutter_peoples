@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persons_exam/screen/home/bloc/home_bloc.dart';
 import 'package:persons_exam/screen/home/home_page.dart';
 
-import 'app/simple_bloc_observer.dart';
 import 'data/repository/home_repository.dart';
 
 void main() {
@@ -44,7 +43,6 @@ class MyApp extends StatelessWidget {
   static Widget runWidget() {
     WidgetsFlutterBinding.ensureInitialized();
 
-    Bloc.observer = SimpleBlocObserver();
 
     return Builder(
       builder: (context) {

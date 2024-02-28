@@ -1,10 +1,5 @@
-// import 'package:find_seat/model/api/response/api_response.dart';
-// import 'package:find_seat/model/entity/entity.dart';
-import 'dart:math';
-
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
-import 'package:rxdart/rxdart.dart';
 
 import '../repo/people_response.dart';
 

@@ -1,16 +1,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
+import 'package:persons_exam/data/model/repo/model.dart';
 import 'package:persons_exam/screen/home/bloc/bloc.dart';
 import 'package:persons_exam/screen/home/widget_home_toolbar.dart';
-import 'package:flutter/material.dart';
+import 'package:persons_exam/screen/profile/profile_page.dart';
+
 import '../../utils/my_const/COLOR_CONST.dart';
 import '../custom_ui/custom_ui.dart';
-import 'bloc/home_bloc.dart';
-import 'bloc/home_event.dart';
-import 'bloc/home_state.dart';
-import 'package:persons_exam/data/model/repo/model.dart';
 
 
 class MyHomePage extends StatefulWidget {
@@ -149,7 +146,12 @@ class _HomeScreenState extends State<MyHomePage> {
             People current =
             state.peoples[index];
             return GestureDetector(
-              onTap: () => {},
+              onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProfilePage(personData: current),
+              ),
+            ),
               child: Container(
                 margin: const EdgeInsets.all(8.0),
                 width: size.width,
